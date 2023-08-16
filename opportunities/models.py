@@ -12,6 +12,8 @@ class Opportunity(models.Model):
     size = models.CharField(max_length=6, choices=[('Small', 'Small'), ('Medium', 'Medium'), ('Large', 'Large')], blank=True)
     description = models.TextField(blank=True)
     shelter = models.ForeignKey('Shelter', on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
