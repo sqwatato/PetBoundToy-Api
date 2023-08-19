@@ -4,6 +4,13 @@ from django.db import models
 from django.db import models
 
 class Opportunity(models.Model):
+    ADOPTION = 'A' 
+    FOSTERING = 'F' 
+    TYPE_CHOICES = [ 
+        (ADOPTION, 'Adoption'),
+        (FOSTERING, 'Fostering'),
+    ]
+    type = models.CharField(max_length=1, choices=TYPE_CHOICES)
     name = models.CharField(max_length=100)
     species = models.CharField(max_length=30)
     breed = models.CharField(max_length=30, blank=True)
