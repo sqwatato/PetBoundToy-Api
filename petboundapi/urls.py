@@ -27,13 +27,11 @@ urlpatterns = [
     path('api/', include('accounts.urls')),
     # path('api-auth/', include('rest_framework.urls')),
     # path('rest-auth/', include('rest_auth.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 urlpatterns += [
     path('api/api-token-auth/', views.obtain_auth_token)
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+
